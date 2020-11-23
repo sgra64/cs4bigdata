@@ -41,7 +41,7 @@ def print_fib(_func, _numbers: []):
         counter = 0
 
 
-print_fib(fib_1, range(30,37))
+print_fib(fib_1, range(21))
 #print_fib(fib_1, [40])
 print()
 
