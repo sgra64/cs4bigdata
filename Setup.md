@@ -1,21 +1,27 @@
-## Software Setup for CS4DS
+## Assignment A: Software Setup for CS4BigData Class
+This class will use the following software:
+ - Python 3
+ - git
+ - Docker
+ - IDE for development, e.g. VSCode (with extensions for Python, Docker, remote development)
+ 
+ Difference between Python 2 and 3: https://www.guru99.com/python-2-vs-python-3.html
 
- - Unix bash
- - Python 3+
- - pip
- - Jupyter Lab
- - Python IDE, e.g. PyCharm
-
-&nbsp;
-#### Set up Unix-bash (Windows only)
-
- - A terminal window is needed to enter commands using a Unix shell such as bash (see [introduction](https://cs.lmu.edu/~ray/notes/bash), [tutorial](https://linuxconfig.org/bash-scripting-tutorial-for-beginners)).
- - While on Linux and Mac laptops, a shell is preinstalled, Windows requires additional setup:
+### Setup recommendations for Windows
+ - Terminal software is needed to enter Unix shell (bash) commands (see [introduction](https://cs.lmu.edu/~ray/notes/bash), [tutorial](https://linuxconfig.org/bash-scripting-tutorial-for-beginners)).
     - Alt-1: using https://www.cygwin.com (works for all versions of Windows)
     - Alt-2: Windows Subsystem for Linux (WSL, for Win10)
-    - Alt-3: https://cmder.net
 
-Test, open terminal window and type shell commands:
+### Challenges
+1. [Challenge 1](#1-challenge-1)
+2. [Challenge 2](#2-challenge-2)
+3. [Challenge 3](#3-challenge-3)
+4. [Challenge 4](#4-challenge-4)
+5. [Challenge 5](#5-challenge-5)
+
+&nbsp;
+### 1.) Challenge 1
+Open a terminal window and type commands:
 
     > ls -la
     > pwd
@@ -23,19 +29,27 @@ Test, open terminal window and type shell commands:
     > cat ~/.bashrc
     > echo $PATH
 
-&nbsp;
-#### Install Python 3+
-
- - install from https://www.python.org/downloads
- - difference between python 2 and 3, https://www.guru99.com/python-2-vs-python-3.html
-
-Test, open terminal window and type:
+### 2.) Challenge 2
+Check python on your system (version 3+ is required, exact versions may vary). Open a terminal window and run commands:
 
     > python --version
-    > Python 3.8.5
+    > Python 3.9.0
+
+Check [`pip`](https://pip.pypa.io) (Python's package manager to install python libraries).
+ - follow [instructions](https://pip.pypa.io/en/stable/installing) for installation:
+    - [download](https://bootstrap.pypa.io/get-pip.py) the `get-pip.py` file.
+    - run `python get-pip.py`
+    - or update pip to latest version: `python -m pip install --upgrade pip`
+
+Run commands in terminal:
+
+    > pip --version
+    > pip 20.2.3 from c:\opt\python38\lib\site-packages\pip (python 3.8)
+
+Test Python:
 
     > python
-    Python 3.8.5 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win3
+    Python 3.9.0 (tags/v3.8.5:580fbb0, Jul 20 2020, 15:57:54) [MSC v.1924 64 bit (AMD64)] on win3
     Type "help", "copyright", "credits" or "license" for more information.
 
     >>> print('Hello World')
@@ -74,33 +88,15 @@ Python built-in functions, https://docs.python.org/3/library/functions.html#glob
     exit()
 
 &nbsp;
-#### Install pip
+### 3.) Challenge 3
+Set up Docker.
 
- - [`pip`](https://pip.pypa.io) is Python's package manager needed to install new python packages.
- - follow [instructions](https://pip.pypa.io/en/stable/installing) for installation:
-    - [download](https://bootstrap.pypa.io/get-pip.py) the `get-pip.py` file.
-    - run `python get-pip.py`
-    - or update pip to latest version: `python -m pip install --upgrade pip`
-
-Test:
-
-    > pip --version
-    > pip 20.2.3 from c:\opt\python38\lib\site-packages\pip (python 3.8)
 
 &nbsp;
-#### Install Jupyter Lab
+### 4.) Challenge 4
+Set up Docker.
 
- - [Jupyter](https://jupyter.org) is an interactive python environment that has become popular among data scientists for developing and sharing their projects.
- - Jupyter Lab is a newer version of Jupyter Notebook, learn about the [differences](https://stackoverflow.com/questions/50982686/what-is-the-difference-between-jupyter-notebook-and-jupyterlab).
- - Follow [installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html) instructions: `pip install jupyterlab`
-
-Test, start Jupyter server, opens browser:
-
-    > jupyter lab
 
 &nbsp;
-#### Install a Python IDE
-
- - An Integrated Development Environment (IDE) is useful for more serious program development. IDE support additional functionality such as debugging, code management, code quality control, test and test coverage, etc.
- - **PyCharm** is a fully-featured IDE for Python, [download](https://www.jetbrains.com/pycharm/download) and follow instructions.
-
+### 5.) Challenge 5
+Set up Docker.
