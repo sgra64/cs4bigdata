@@ -1,4 +1,4 @@
-# Assignment A: Setup Python &nbsp; (<span style="color:red">18 Pts</span>)
+# Assignment B: Docker &nbsp; (<span style="color:red">18 Pts</span>)
 
 This assignment will setup Docker. If you already have it, simply run challenges and answer questions (if any).
 
@@ -43,7 +43,7 @@ If you can't run the "docker" command, the CLI may not be installed. If "docker 
 
 &nbsp;
 ### 2.) Challenge 2
-Run *hello-world* container ([source](https://hub.docker.com/_/hello-world)):
+Run the *hello-world* container from Docker-Hub: [hello-world](https://hub.docker.com/_/hello-world):
 ```sh
 > docker run hello-world
 Unable to find image 'hello-world:latest' locally
@@ -84,7 +84,7 @@ CONTAINER ID  IMAGE        COMMAND   CREATED    STATUS     PORTS   NAMES
 da16000022e0  hello-world  "/hello"  6 min ago  Exited(0)  magical_aryabhata
 40e605d9b027  hello-world  "/hello"  4 sec ago  Exited(0)  pedantic_rubin
 ```
-"Run" always creates new(!) containers and runs them while "start" restarts existing containers.
+"Run" always creates new containers and runs them while "start" restarts existing containers.
 
 (2 Pts)
 
@@ -193,12 +193,12 @@ Linux 54486c62d745 5.10.124-linuxkit #1 SMP Thu Jun 30 08:19:10 UTC 2022 x86_64 
 
 &nbsp;
 ### 5.) Challenge 5
-[`python:latest`](https://hub.docker.com/_/python) official image is ~1GB while [`python:3.9.0-alpine`]() is ~60MB. The alpine-version builds on minimal Alpine Linux while the official version builds on Ubuntu. "Minimal" means available commands, tools inside the container is restricted. Only basic tools are available. Required additional tools need to be installed into the container.
+[`python:latest`](https://hub.docker.com/_/python/tags) official image is 340MB while [`python:3.9.0-alpine`](https://hub.docker.com/_/python/tags?name=3.9-alpine&page=1) is ~18MB. The alpine-version builds on minimal Alpine Linux while the official version builds on Ubuntu. "Minimal" means available commands, tools inside the container is restricted. Only basic tools are available. Required additional tools need to be installed into the container.
 
 Build an new ```alpine-python-sshd``` container based on the ```python:3.9.0-alpine``` image that includes Python 3.9.0 and ssh-access so that your IDE can remotely connect to the container and run/debug Python code inside the container, which is the final challenge.
 
 Copy file [print_sys.py](https://github.com/sgra64/cs4bigdata/blob/main/A_setup_python/print_sys.py) from Assignment A into larry's ```$HOME``` directory and execute.
-```py
+```sh
 > ssh larry@localhost
 Welcome to Alpine!
 
