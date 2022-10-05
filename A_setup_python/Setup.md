@@ -1,4 +1,4 @@
-# Setup A Python (<span style="color:red"> 10 Pts </span>)
+# Assignment A: Setup Python &nbsp; (<span style="color:red">10 Pts</span>)
 
 This assignment will setup your base Python enviroment. If you already have it, simply run challenges and answer questions (if any). If you cannot run challenges, set up the needed software.
 
@@ -11,7 +11,6 @@ This assignment will setup your base Python enviroment. If you already have it, 
 
 &nbsp;
 ### 1.) Challenge 1
-(<span style="color:red"> 2 Pts </span>)
 Open a terminal and type commands:
 ```sh
 > ls -la
@@ -28,9 +27,10 @@ Open a terminal and type commands:
  On *Windows*, consider using a Unix emulator such as [cygwin](https://www.cygwin.com), the built-in Windows Subsystem for Linux [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or a [Linux VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox).
  *CMD.EXE* is no option, *Powershell* is not incompatible to Unix standards.
 
+(2 Pts)
+
 &nbsp;
 ### 2.) Challenge 2
-(<span style="color:red"> 2 Pts </span>)
 Check if you have Python 3 installed on your system. Name three differences between [Python 2 and 3](https://www.guru99.com/python-2-vs-python-3.html#7). 
 
 Run commands in terminal (exact version 3.x.x may vary):
@@ -38,10 +38,10 @@ Run commands in terminal (exact version 3.x.x may vary):
 > python --version
 Python 3.9.0
 ```
+(2 Pts)
 
 &nbsp;
 ### 3.) Challenge 3
-(<span style="color:red"> 2 Pts </span>)
 Check if you have a Python package manager installed (pip, conda, ... ). [`pip`](https://pip.pypa.io) is Python's default package manager needed to install additional python packages and libraries.
 
 Follow [instructions](https://pip.pypa.io/en/stable/installing) for installation:
@@ -54,10 +54,10 @@ Run commands in terminal:
 > pip --version
 pip 22.2.2 from c:\opt\python38\lib\site-packages\pip (python 3.9)
 ```
+(2 Pts)
 
 &nbsp;
 ### 4.) Challenge 4
-(<span style="color:red"> 2 Pts </span>)
 Test Python:
 ```py
 > python
@@ -111,10 +111,10 @@ Python machine: AMD64
 Python system:  Windows   
 Python version: 3.9.0     
 ```
+(2 Pts)
 
 &nbsp;
 ### 5.) Challenge 5
-(<span style="color:red"> 2 Pts </span>)
 Learn about Python's [built-in functions](https://docs.python.org/3/library/functions.html). Test the [*globals()*](https://docs.python.org/3/library/functions.html#globals) function.
 ```py
   >>> globals()
@@ -130,3 +130,4 @@ Test the [*input()*](https://docs.python.org/3/library/functions.html#input) fun
   "Monty Python's Flying Circus"
   exit()
 ```
+(2 Pts)
