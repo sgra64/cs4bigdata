@@ -24,8 +24,8 @@ Open a terminal and type commands:
  
  On *Mac*, refer to .zshrc instead of .bashrc.
  
- On *Windows*, consider using a Unix emulator such as [cygwin](https://www.cygwin.com), the built-in Windows Subsystem for Linux [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or a [Linux VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox).
- *CMD.EXE* is no option, *Powershell* is not incompatible to Unix standards.
+ On *Windows*, consider using a Unix emulator such as [cygwin](https://www.cygwin.com), [GitBash](https://gitforwindows.org); the built-in Windows Subsystem for Linux [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) or a [Linux VM](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox).
+ *CMD.EXE* is no option, *Powershell* is not recommended since it is incompatible with Unix standards.
 
 (2 Pts)
 
