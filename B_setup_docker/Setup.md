@@ -20,7 +20,8 @@ Salomon Hykes, PyCon 2013, Santa Clara CA: *"The Future of Linux Containers"* ([
 3. [Challenge 3:](#3-challenge-3) Run minimal (Alpine) Python container
 4. [Challenge 4:](#4-challenge-4) Configure Alpine container for ssh
 5. [Challenge 5:](#5-challenge-5) Build Alpine-Python container with ssh access
-6. [Challenge 6:](#6-challenge-6) Setup IDE to develop Code in Alpine-Python 
+6. [Challenge 6:](#6-challenge-6) Setup IDE to develop Code in Alpine-Python
+7. [Challenge 7:](#7-challenge-7) Setup Jupyter-server as a Docker container 
 
 &nbsp;
 ### 1.) Challenge 1
@@ -304,6 +305,79 @@ Python version: 3.9.0
 &nbsp;
 ### 6.) Challenge 6
 
-Setup your IDE to run/debug Python code inside the ```alpine-python-sshd``` container.
+Setup your IDE to run/debug Python code inside the `alpine-python-sshd` container. In Visual Studio Code (with extensions for "Remote Development", "Docker" and "Dev Containers"), go to the Docker side-Tab, Right-click the running container and "Attach Visual Studio Code". This opens a new VSCode Window with a view from inside the container with file [print_sys.py](https://github.com/sgra64/cs4bigdata/blob/main/A_setup_python/print_sys.py) from the previous challenge.
 
-(4 Pts)
+Run this file in the IDE connected to the container. Output will show it running under Linux, Python 3.9.0 in `/home/larry`.
+
+![Remote Code](Setup_img01.png)
+
+(2 Pts)
+
+&nbsp;
+### 7.) Challenge 7
+
+Setup a Jupyter-server from the [Jupyter Docker Stack](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html). Jupyter Docker Stacks are a set of ready-to-run Docker images containing Jupyter applications and interactive computing tools.
+
+[Selecting an Image](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html) decides about the features preinstalled for Jupyter. Configurations exit for *all-spark-notebook* building on *pyspark-notebook* building on *scipy-notebook*, which builds on a *minimal-* and *base-notebook*, which builds on an *Ubuntu LTS* distribution. Other variations exist for *tensorflow-*, *datascience-*, or *R-notebooks*. 
+
+![Remote Code](https://jupyter-docker-stacks.readthedocs.io/en/latest/_images/inherit.svg)
+
+Pull the image for the *minimal-notebook* (415 MB,  [tags](https://hub.docker.com/r/jupyter/minimal-notebook/tags/) ) and start it.
+
+```sh
+docker pull jupyter/minimal-notebook:latest
+docker image ls
+
+REPOSITORY                TAG     IMAGE ID       CREATED     SIZE
+jupyter/minimal-notebook  latest  33f2fa3eb079   18h ago   1.39GB
+```
+
+Create the container with Jupyters default port 8888 exposed to the host environment.
+
+Watch for the URL with the token in the output log.
+
+```sh
+docker run --name jupyter-minimal -p 8888:8888 jupyter/minimal-notebook
+
+Entered start.sh with args: jupyter lab
+Executing the command: jupyter lab
+[I 2022-10-10 21:53:22.855 ServerApp] jupyterlab | extension was successfully linked.
+...
+To access the server, open this file in a browser:
+http://127.0.0.1:8888/lab?token=6037ff448a79463b97e3c29af712b9395dd8548b
+71d77769
+```
+After the first access with the token included in the URL, the browser
+opens with http://localhost:8888/lab.
+
+![Remote Code](Setup_img02.png)
+
+Start to work with Jupyter. A Jupyter notebook is a web-form comprised
+of cells where Python commands can be entered. Execution is triggered
+by `SHIFT + Enter`. Run the Code below (copy & paste from file *print_sys.py* ).
+
+![Remote Code](Setup_img03.png)
+
+The notebook is stored **inside** the container under *Untitled.ipynb*.
+
+Shut down the Jupyter-server with: File -> Shutdown.
+
+Reatart the (same) container as "daemon" process running in the background (the container remembers flags given at creation: `-p 8888:8888`). The flag `-a` attaches a terminal to show log lines with the token-URL.
+
+```sh
+docker start jupyter-minimal -a
+```
+
+After login, the prior notebook with the code above is still there under *Untitled.ipynb*. Open and re-run the notebook.
+
+A container preserves its state, e.g. files that get created. Docker 
+simply adds them in another image layer. Therefore, the size of a
+container is only defined by state changes that occured after the
+creation of the container instance.
+
+Shut down the Jupyter server with: File -> Shutdown, not with:
+```sh
+docker stop jupyter-minimal
+```
+
+(2 Pts)
