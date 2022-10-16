@@ -1,13 +1,12 @@
 """
 Write expressions to initialize member variables a) - i) such that
-they yield the results indicated in comments for the example list.
+they yield the results shown in comments for the example list.
 
-Only use [built-in functions](https://docs.python.org/3/library/functions.html).
-Don't write own functions.
-Use Python's powerful concepts for collections such as
+Use only [built-in functions](https://docs.python.org/3/library/functions.html),
+no own functions. Use Python's powerful collections constructs such as
 [list comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp).
 
-Make sure your solution works for any list numbers[].
+Make sure your solution works for any numbers[] list. Try numbers_2 in __main__.
 """
 class C2_numbers:
 
@@ -42,34 +41,29 @@ class C2_numbers:
     i = 0
 
 
-    def value(self, selector):
-        return { 'a': self.a, 'b': self.b, 'c': self.c, 'd': self.d,
-            'e': self.e, 'f': self.f, 'g': self.g, 'h': self.h, 'i': self.i
-        }[selector]
-
-
-    def fmt_value(self, selector):
-        fmt = {
-            'a': 'number of numbers',
-            'b': 'first three numbers',
-            'c': 'last three numbers',
-            'd': 'last three numbers reverse',
-            'e': 'odd numbers',
-            'f': 'number of odd numbers',
-            'g': 'sum of odd numbers',
-            'h': 'duplicate numbers removed',
-            'i': 'number of duplicate numbers'
-        }[selector]
-        return f'{selector}) {fmt}: {self.value(selector)}'
-
-
-    def solution(self):
-        pass    # you may place your solution here as well
-
     def __init__(self, numbers=None):
+        """
+        Constructor
+        """
         if numbers != None and type(numbers==list):
             self.numbers = numbers
-        self.solution()
+        solution(self)
+
+
+def solution(_: C2_numbers):
+    """
+    Another way to include your solution for initializing member variables:
+        _.a = len(_.numbers)
+        _.b = []
+        _.c = []
+        _.d = []
+        _.e = []
+        _.f = 0
+        _.g = 0
+        _.h = []
+        _.i = 0
+    """
+    pass    # you may place your solution here as well
 
 
 if __name__ == '__main__':
@@ -83,5 +77,18 @@ if __name__ == '__main__':
     # numb = C2_numbers(numbers_2)
     #
     print(f'numbers: {numb.numbers}\n#')
-    for _sel in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',]:
-        print(f'{numb.fmt_value(_sel)}')
+    for _selector in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',]:
+        fmt = {
+            # selector, value, output string
+            'a': (numb.a, 'number of numbers'),
+            'b': (numb.b, 'first three numbers'),
+            'c': (numb.c, 'last three numbers'),
+            'd': (numb.d, 'last three numbers reverse'),
+            'e': (numb.e, 'odd numbers'),
+            'f': (numb.f, 'number of odd numbers'),
+            'g': (numb.g, 'sum of odd numbers'),
+            'h': (numb.h, 'duplicate numbers removed'),
+            'i': (numb.i, 'number of duplicate numbers')
+        }[_selector]
+        # output for _selector 'b': "b) first three numbers: [1, 4, 6]"
+        print(f'{_selector}) {fmt[1]}: {fmt[0]}')

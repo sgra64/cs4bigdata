@@ -7,38 +7,18 @@ import unittest
 from C2_numbers import C2_numbers
 
 
-# lists for creating test objects
-list_1 = [4, 12, 3, 8, 17, 12, 1, 8, 7]
-list_2 = [1, 4, 6, 67, 6, 8, 23, 8, 34, 49, 67, 6, 8, 23, 37, 67, 6, 34, 19, 67, 6, 8]
-list_3 = [1, 2, 3, 4, 5, 6]
-list_4 = [6, 2, 1, 5]
-list_5 = [100]
-list_6 = []
-
-test_lists = {
-    'list_1': C2_numbers(list_1),
-    'list_2': C2_numbers(list_2),
-    'list_3': C2_numbers(list_3),
-    'list_4': C2_numbers(list_4),
-    'list_5': C2_numbers(list_5),
-    'list_6': C2_numbers(list_6),
-}
-
-
-"""
-Test class.
-"""
 class C2_numbers_test(unittest.TestCase):
+    """
+    Test class.
+    """
 
-    """
-    References to "objects under test" created from lists:
-    """
-    numb_1 = test_lists['list_1']
-    numb_2 = test_lists['list_2']
-    numb_3 = test_lists['list_3']
-    numb_4 = test_lists['list_4']
-    numb_5 = test_lists['list_5']
-    numb_6 = test_lists['list_6']
+    # "Objects under test" created from lists:
+    numb_1 = C2_numbers([4, 12, 3, 8, 17, 12, 1, 8, 7])
+    numb_2 = C2_numbers([1, 4, 6, 67, 6, 8, 23, 8, 34, 49, 67, 6, 8, 23, 37, 67, 6, 34, 19, 67, 6, 8])
+    numb_3 = C2_numbers([1, 2, 3, 4, 5, 6])
+    numb_4 = C2_numbers([6, 2, 1, 5])
+    numb_5 = C2_numbers([100])
+    numb_6 = C2_numbers([])
 
 
     # tests for a): number of numbers
@@ -191,10 +171,16 @@ class C2_numbers_test(unittest.TestCase):
         self.assertEqual(self.numb_6.i, 0)
 
 
+    # # https://stackoverflow.com/questions/35229770/python-unit-test-testcase-class-with-own-constructor-fails-in-standard-library
+    # def __init__(self, *args, **kwargs):
+    #     super(C2_numbers_test, self).__init__(*args, **kwargs)
+
+
 def run_tests(test_class):
-    print('Unit testing using lists:')
-    for key, value in test_lists.items():
-        print(f'{key}: {value.numbers}')
+    print('Unit testing using test objects:')
+    for numb in [(k, v) for k, v in test_class.__dict__.items() if str(k).startswith('numb_')]:
+        print(f' - {numb[0]}: {numb[1].numbers}')
+    print(' ------')
     #
     _suite = unittest.makeSuite(test_class, "test")
     _runner = unittest.TextTestRunner(verbosity=0)  # stream=sys.stdout
