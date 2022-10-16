@@ -7,7 +7,7 @@ Don't write own functions.
 Use Python's powerful concepts for collections such as
 [list comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp).
 
-Make sure your solution works for any numbers[] list.
+Make sure your solution works for any list numbers[].
 """
 class C2_numbers:
 
@@ -64,7 +64,7 @@ class C2_numbers:
 
 
     def solution(self):
-        pass    # you may place your solution here as
+        pass    # you may place your solution here as well
 
     def __init__(self, numbers=None):
         if numbers != None and type(numbers==list):
