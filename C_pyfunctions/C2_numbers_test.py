@@ -4,7 +4,7 @@ Python unit tests for example C2_numbers.py (unit-under-test)
 https://docs.python.org/3/library/unittest.html#module-unittest
 """
 import unittest
-from C2_numbers import C2_numbers
+from C2_numbers_solution import C2_numbers
 
 
 class C2_numbers_test(unittest.TestCase):
@@ -171,6 +171,26 @@ class C2_numbers_test(unittest.TestCase):
         self.assertEqual(self.numb_6.i, 0)
 
 
+    # tests for j): ascending list of squared numbers with no duplicates
+    def test_j_ascending_list_of_squared_numbers_with_no_duplicates_numb_1234(self):
+        self.assertEqual(self.numb_1.j, [1, 9, 16, 49, 64, 144, 289])
+        self.assertEqual(self.numb_2.j, [1, 16, 36, 64, 361, 529, 1156, 1369, 2401, 4489])
+        self.assertEqual(self.numb_3.j, [1, 4, 9, 16, 25, 36])
+        self.assertEqual(self.numb_4.j, [1, 4, 25, 36])
+        self.assertEqual(self.numb_5.j, [10000])
+        self.assertEqual(self.numb_6.j, [])
+
+
+    # tests for k) initialize with "ODD_LIST" or "EVEN_LIST" depending on numbers length
+    def test_k_list_length_numb_1234(self):
+        self.assertEqual(self.numb_1.k, "ODD_LIST")
+        self.assertEqual(self.numb_2.k, "EVEN_LIST")
+        self.assertEqual(self.numb_3.k, "EVEN_LIST")
+        self.assertEqual(self.numb_4.k, "EVEN_LIST")
+        self.assertEqual(self.numb_5.k, "ODD_LIST")
+        self.assertEqual(self.numb_6.k, "EMPTY_LIST")
+
+
     # # https://stackoverflow.com/questions/35229770/python-unit-test-testcase-class-with-own-constructor-fails-in-standard-library
     # def __init__(self, *args, **kwargs):
     #     super(C2_numbers_test, self).__init__(*args, **kwargs)
@@ -180,7 +200,7 @@ def run_tests(test_class):
     print('Unit testing using test objects:')
     for numb in [(k, v) for k, v in test_class.__dict__.items() if str(k).startswith('numb_')]:
         print(f' - {numb[0]}: {numb[1].numbers}')
-    print(' ------')
+    print(' - -----')
     #
     _suite = unittest.makeSuite(test_class, "test")
     _runner = unittest.TextTestRunner(verbosity=0)  # stream=sys.stdout
