@@ -48,23 +48,6 @@ class C2_numbers:
     k = "NEITHER"
 
 
-    def solution(self):     # from Python 3.11: -> Self:
-    #<remove>
-        self.a = len(self.numbers)
-        self.b = self.numbers[0:3]
-        self.c = self.numbers[-3:]
-        self.d = list(reversed(self.numbers[-3:]))
-        self.e = [i for i in self.numbers if i % 2 == 1]
-        self.f = len(self.e)
-        self.g = sum([i for i in self.numbers if i % 2 == 1])
-        self.h = list(dict.fromkeys(self.numbers))    # dict.keys preserve order
-        self.i = len(self.numbers)-len(list(dict.fromkeys(self.numbers)))
-        self.j = sorted(set([n * n for n in self.numbers]))
-        self.k = "ODD_LIST" if len(self.numbers) % 2 == 1 else "EVEN_LIST" if len(self.numbers) > 0 else "EMPTY_LIST"
-    #</remove>
-        return self
-
-
     def print_results(self):
         print(f'numbers: {self.numbers}\n#')
         fmt = {
@@ -92,7 +75,6 @@ class C2_numbers:
         """
         if numbers != None and type(numbers==list):
             self.numbers = numbers
-        self.solution()
 
 
 if __name__ == '__main__':

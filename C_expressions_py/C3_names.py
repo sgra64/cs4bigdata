@@ -53,29 +53,6 @@ class C3_names:
         # self.name_lengths = ...
         # self.freq = ...
         #
-        self.name_lengths = [len(name) for name in self.names]
-        lenfreq = dict()    # use length as key, count occurence as value
-        for l in self.name_lengths:
-            lenfreq[l] = lenfreq[l] + 1 if l in lenfreq else 1
-        # {5: 23, 7: 7, 8: 6, 6: 16, 9: 5, 3: 3, 4: 7, 10: 2}
-        # print(f'length freq: {lenfreq}')
-
-        # flip k, v pairs to (v, k) tuple list
-        flipped = [(lenfreq[k], k) for k in lenfreq]
-        flipped.sort(reverse=True)  # sort by occurence (in place)
-        # [(23, 5), (16, 6), (7, 7), (7, 4), (6, 8), (5, 9), (3, 3), (2, 10)]
-        # print(f'flipped freq: {flipped}')
-
-        def names_of_length(_n: int) -> list:
-            return [name for name in self.names if len(name)==_n]
-        #
-        most_freq = [(t[0], t[1], names_of_length(t[1])) for t in flipped[0:3]]
-        least_freq = [(t[0], t[1], names_of_length(t[1])) for t in (flipped[::-1])[0:3]]
-        self.freq = {
-            "most_freq": most_freq,
-            "least_freq": least_freq
-        }
-        # print(f'freq: {self.freq["least_freq"]}')
         return self
 
 
@@ -83,8 +60,7 @@ class C3_names:
         """
         Return average name length.
         """
-        _len = len(self.name_lengths)
-        return 0 if _len == 0 else round(sum(self.name_lengths) / _len, 2)
+        return 0.0
 
 
     def print_names_and_name_lengths(self, enabled=True): # -> Self: from Python 3.10
