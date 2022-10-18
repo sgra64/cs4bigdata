@@ -16,12 +16,13 @@ class C3_names:
         'Warren', 'Dixon', 'Ramos', 'Reyes', 'Burns', 'Gordon', 'Shaw', 'Holmes', 'Rice',
         'Robertson', 'Henderson', 'Patterson', 'Red', 'Willoughby', 'Fitzgerald']
 
-    # list of name lengths
+    # list of corresponding name lengths
     # [5, 7, 8, 5, 5, 5, 6, 6, ... 6, 4, 9, 9, 9, 3, 10, 10]
     name_lengths = []
 
     # composite structure with the three most and the three least frequent
     # name lengths
+    freq = None
     """
     freq = {
         "most_freq": [
@@ -31,7 +32,6 @@ class C3_names:
             (2, 10, [names...]), (3, 3, [names...]), (5, 9, [names...])
         ]
     }
-    #
     holding information for output:
     #
     The three most frequent name lenghts are:
@@ -43,7 +43,6 @@ class C3_names:
     -  3 names of length 3: ['Lee', 'Cox', 'Red']
     -  5 names of length 9: ['Rodriguez', 'Hernandez', 'Robertson', 'Henderson', 'Patterson']
     """
-    freq = None
 
 
     def solution(self): # -> Self: from Python 3.10

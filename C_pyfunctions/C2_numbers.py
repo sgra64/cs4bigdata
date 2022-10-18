@@ -79,7 +79,7 @@ class C2_numbers:
 
 if __name__ == '__main__':
     """
-    main driver that starts program when called from command line
+    Main driver that starts program when called from command line.
     """
     #
     n1 = C2_numbers()   # use default list in C2_numbers

@@ -136,6 +136,16 @@ class C3_names_test(unittest.TestCase):
         self.assertEqual(self.nam_6.freq['least_freq'], [])  # empty list
 
 
+    # tests h): test average name lengths
+    def test_h_average_name_lengths(self):
+        self.assertEqual(self.nam_1.avg_name_length(), 5.94)  # returned result must be rounded(x, 2)
+        self.assertEqual(self.nam_2.avg_name_length(), 5.80)
+        self.assertEqual(self.nam_3.avg_name_length(), 5.39)
+        self.assertEqual(self.nam_4.avg_name_length(), 1)
+        self.assertEqual(self.nam_5.avg_name_length(), 0)
+        self.assertEqual(self.nam_6.avg_name_length(), 0)
+
+
     # # https://stackoverflow.com/questions/35229770/python-unit-test-testcase-class-with-own-constructor-fails-in-standard-library
     # def __init__(self, *args, **kwargs):
     #     super(C3_names_test, self).__init__(*args, **kwargs)
