@@ -4,7 +4,7 @@ Python unit tests for example C2_numbers.py (unit-under-test)
 https://docs.python.org/3/library/unittest.html#module-unittest
 """
 import unittest
-from C2_numbers_solution import C2_numbers
+from C2_numbers import C2_numbers
 
 
 class C2_numbers_test(unittest.TestCase):
