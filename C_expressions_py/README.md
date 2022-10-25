@@ -131,7 +131,7 @@ f) number of odd numbers: 4
 g) sum_ of odd numbers: 28
 h) duplicate numbers removed: [4, 12, 3, 8, 17, 1, 7]
 i) number of duplicate numbers: 2
-j) ascending, de-dup (n**2) numbers: [1, 9, 16, 49, 64, 144, 289]
+j) ascending, de-duplicated (n^2) numbers: [1, 9, 16, 49, 64, 144, 289]
 k) length: "ODD_LIST"
 ```
 Try with second `C2_numbers()` object `n2` in [C2_numbers.py](https://github.com/sgra64/cs4bigdata/blob/main/C_expressions_py/C2_numbers.py):
@@ -147,8 +147,7 @@ f) number of odd numbers: 10
 g) sum_ of odd numbers: 420
 h) duplicate numbers removed: [1, 4, 6, 67, 8, 23, 34, 49, 37, 19]
 i) number of duplicate numbers: 12
-j) ascending, de-duplicated
- (n^2) numbers: [1, 16, 36, 64, 361, 529, 1156, 1369, 2401, 4489]
+j) ascending, de-duplicated (n^2) numbers: [1, 16, 36, 64, 361, 529, 1156, 1369, 2401, 4489]
 k) length: "EVEN_LIST"
 ```
 Pull file [C2_numbers_test.py](https://github.com/sgra64/cs4bigdata/blob/main/C_expressions_py/C2_numbers_test.py) into same directory. Run unit tests to confirm the 
