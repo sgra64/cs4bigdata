@@ -77,7 +77,7 @@ such that they yield the results shown in comments for the example list.
 Only use
 [built-in functions](https://docs.python.org/3/library/functions.html) or Python's
 powerful expressions
-[ternary operators](https://book.pythontips.com/en/latest/ternary_operators.html),
+[ternary operators](https://book.pythontips.com/en/latest/ternary_operators.html) and
 [list comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp)
 
 Don't write own functions.
@@ -85,7 +85,7 @@ Don't write own functions.
 ```py
 numbers = [4, 12, 3, 8, 17, 12, 1, 8, 7]
 
-# a) initialize with number of numbers: 9
+# a) initialize with number of numbers[]: 9
 a = len(numbers)    # <-- expression for a)
 
 # b) initialize with first three numbers: [4, 12, 3]
@@ -134,8 +134,7 @@ i) number of duplicate numbers: 2
 j) ascending, de-dup (n**2) numbers: [1, 9, 16, 49, 64, 144, 289]
 k) length: "ODD_LIST"
 ```
-Try with another numbers list `numbers_2`:
-Output:
+Try with second `C2_numbers()` object `n2` in [C2_numbers.py](https://github.com/sgra64/cs4bigdata/blob/main/C_expressions_py/C2_numbers.py):
 ```py
 numbers: [1, 4, 6, 67, 6, 8, 23, 8, 34, 49, 67, 6, 8, 23, 37, 67, 6, 34, 19, 67, 6, 8]
 #
@@ -148,7 +147,8 @@ f) number of odd numbers: 10
 g) sum_ of odd numbers: 420
 h) duplicate numbers removed: [1, 4, 6, 67, 8, 23, 34, 49, 37, 19]
 i) number of duplicate numbers: 12
-j) ascending, de-dup (n^2) numbers: [1, 16, 36, 64, 361, 529, 1156, 1369, 2401, 4489]
+j) ascending, de-duplicated
+ (n^2) numbers: [1, 16, 36, 64, 361, 529, 1156, 1369, 2401, 4489]
 k) length: "EVEN_LIST"
 ```
 Pull file [C2_numbers_test.py](https://github.com/sgra64/cs4bigdata/blob/main/C_expressions_py/C2_numbers_test.py) into same directory. Run unit tests to confirm the 
@@ -232,12 +232,13 @@ class C3_names:
     # list of names default initialization (updated by the constructor)
     names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Cox', 'Gomez', 'Murray', 'Freeman', 'Wells', 'Webb', 'Simpson', 'Stevens', 'Tucker' 'Porter', 'Hunter', 'Hicks', 'Crawford', 'Henry', 'Boyd', 'Mason', 'Morales', 'Kennedy', 'Warren', 'Dixon', 'Ramos', 'Reyes', 'Burns', 'Gordon', 'Shaw', 'Holmes', 'Rice', 'Robertson', 'Henderson', 'Patterson', 'Red', 'Willoughby', 'Fitzgerald']
 
-    # list of name lengths
+    # name_lengths: list of name lengths
     # [5, 7, 8, 5, 5, 5, 6, 6, ... 6, 4, 9, 9, 9, 3, 10, 10]
     name_lengths = []
 
-    # composite structure with the three most and the three least frequent
-    # name lengths
+    # freq: composite structure with the three most and the three least frequent
+    # name lengths such as: 23x names of length 5, 16x names of length 6
+    # and 7 names of length 7 as three most_frequent names.
     """
     freq = {
         "most_freq": [

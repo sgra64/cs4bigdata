@@ -5,7 +5,7 @@ and the least frequent names.
 """
 class C3_names:
 
-    # list of names default initialization (updated by the constructor)
+    # names: list of names default initialization (updated by the constructor)
     names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller',
         'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White',
         'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark',
@@ -16,12 +16,13 @@ class C3_names:
         'Warren', 'Dixon', 'Ramos', 'Reyes', 'Burns', 'Gordon', 'Shaw', 'Holmes', 'Rice',
         'Robertson', 'Henderson', 'Patterson', 'Red', 'Willoughby', 'Fitzgerald']
 
-    # list of corresponding name lengths
+    # name_lengths: list of corresponding name lengths
     # [5, 7, 8, 5, 5, 5, 6, 6, ... 6, 4, 9, 9, 9, 3, 10, 10]
     name_lengths = []
 
-    # composite structure with the three most and the three least frequent
-    # name lengths
+    # freq: composite structure with the three most and the three least frequent
+    # name lengths such as: 23x names of length 5, 16x names of length 6
+    # and 7 names of length 7 as three most_frequent names.
     freq = None
     """
     freq = {
