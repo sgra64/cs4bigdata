@@ -231,9 +231,9 @@ Create a new Alpine container with name `alpine-ssh` and configure it for
 ```sh
 docker run --name alpine-ssh -p 22:22 -it alpine:latest
 ```
-Instructions for installation and confiduration can be found
-[here](https://wiki.alpinelinux.org/wiki/Setting_up_a_SSH_server) or
-[here](https://www.cyberciti.biz/faq/how-to-install-openssh-server-on-alpine-linux-including-docker).
+Instructions for installation and confiduration can be found here:
+["How to install OpenSSH server on Alpine Linux"](https://www.cyberciti.biz/faq/how-to-install-openssh-server-on-alpine-linux-including-docker) or here:
+["Setting up a SSH server"](https://wiki.alpinelinux.org/wiki/Setting_up_a_SSH_server).
 
 Add a local user *larry* with *sudo*-rights, install *sshd* listening on the
 default port 22.
