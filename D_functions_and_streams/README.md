@@ -94,7 +94,7 @@ Output:
 ['Gill', 'Howe', 'Case', 'Lott', 'Hall', 'Pena', 'Witt', 'Soto']
 found 8 names with 4 letters.
 ```
-(1 Pt)
+(1 Pts)
 
 
 &nbsp;
@@ -167,7 +167,7 @@ compounded 3-letter names: RAYCOX.
 ['Gomez', 'Petty', 'Casey', 'Crane', 'Vance', 'Brock']
 compounded 5-letter names: GOMEZPETTYCASEYCRANEVANCEBROCK.
 ```
-(1 Pt)
+(1 Pts)
 
 
 &nbsp;
@@ -259,7 +259,7 @@ batch 4: ['X224200-0', 'X282204-8', 'X448426-8', 'X600282-8', 'X802882-8']
 Pull file [stream_test.py](https://github.com/sgra64/cs4bigdata/blob/main/D_functions_and_streams/stream_test.py) into same directory. Run unit tests to confirm the 
 correctness of your solution.
 ```sh
-test_url=https://github.com/sgra64/cs4bigdata/blob/main/D_functions_and_streams/stream_test.py
+test_url=https://raw.githubusercontent.com/sgra64/cs4bigdata/main/D_functions_and_streams/stream_test.py
 curl -O $(echo $test_url)           # download stream_test.py from URL
 python stream_test.py               # run tests from test file
 

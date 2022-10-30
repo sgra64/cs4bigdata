@@ -156,10 +156,10 @@ if __name__ == '__main__':
     # Challenge 2, complete map() function
     # to map names to name lengths for the first 8 names
     Stream(names).source() \
-    .slice(8) \
-    .print() \
-    .map(lambda n : len(n)) \
-    .print()
+        .slice(8) \
+        .print() \
+        .map(lambda n : len(n)) \
+        .print()
 
 
     # Challenge 3, complete reduce() function
