@@ -1,0 +1,23 @@
+#######################################################################
+# Create, start/stop container with docker-compose.
+#
+# Build image and container (once):
+# - docker-compose up -d
+# creates/builds image from Dockerfile, creates and runs container:
+# - new local image: alpine-sshd from Dockerfile
+# - new container created from image and started.
+# --> container is running
+#
+# From the image, the (same) container can be restarted and stopped:
+# - docker-compose start
+# - docker-compose stop
+#
+#######################################################################
+
+services:
+  alpine-sshd:
+    build: .
+    image: alpine-sshd
+    ports:
+      - "22:22"     # host-env:container
+    # command: ["exec", "/usr/sbin/sshd"]
