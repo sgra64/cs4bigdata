@@ -35,39 +35,39 @@ class Stream:
         """
 
         def slice(self, i1, i2=None, i3=1):
-            # function that returns new stream operation instance that slices stream
+            # function that returns new __Stream_op instance that slices stream
             if i2 == None:
                 i2, i1 = i1, 0
             #
             return self.__new(self.__data[i1:i2:i3])
 
         def filter(self, filter_func=lambda d : True) ...
-            # return new stream operation instance that passes only elements for
+            # return new __Stream_op instance that passes only elements for
             # which filter_func yields True
 
         def map(self, map_func=lambda d : d) ...
-            # return new stream operation instance that passes elements resulting
+            # return new __Stream_op instance that passes elements resulting
             # from map_func of corresponding elements in the inbound stream
 
         def reduce(self, reduce_func, start=0) -> any: ... 
             # terminal function that returns single value compounded by reduce_func
 
         def sort(self, comperator_func=lambda d1, d2 : True) ...
-            # return new stream operation instance that passes stream sorted by
+            # return new __Stream_op instance that passes stream sorted by
             # comperator_func
 
-        def cond(self, cond: bool, conditional):
-            # return same stream operation instance or apply conditional function
-            # on stream operation instance if condition yields True
+        def cond(self, cond: bool, conditional): ...
+            # return same __Stream_op instance or apply conditional function
+            # on __Stream_op instance if condition yields True
 
         def print(self) ...
-            # return unchanged (same) stream operation instance and print as side effect
+            # return same, unchanged __Stream_op instance and print as side effect
 
         def count(self) -> int: ...
             # terminal function that returns number of elements in terminal stream
 
         def get(self) -> any: ...
-            # terminal function that returns final stream data
+            # terminal function that returns final stream __data
 ```
 
 Application of the stream can demonstrated by the example of a stream of names. The stream is instantiated from the `names` list. The `source()` - method returns the first `__Stream_op` - instance onto which chainable stream methods can be attached.
@@ -94,6 +94,13 @@ Output:
 ['Gill', 'Howe', 'Case', 'Lott', 'Hall', 'Pena', 'Witt', 'Soto']
 found 8 names with 4 letters.
 ```
+**Questions:**
+
+ - How does method chaining work?
+    - What is required for chainable methods? 
+ - How does a data pipeline gets formed in the example?
+    - Draw a sketch of data objects and how they are linked from the example above.
+
 (1 Pts)
 
 

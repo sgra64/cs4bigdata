@@ -25,24 +25,24 @@ class Stream:
         """
         
         def slice(self, i1, i2=None, i3=1):
-            # function that returns new stream operation instance that slices stream
+            # function that returns new __Stream_op instance that slices stream
             if i2 == None:
                 # flip i1, i2 for single arg, e.g. slice(0, 8), slice(8)
                 i2, i1 = i1, 0
             #
-            # return new instance of slicer stream operation
+            # return new __Stream_op instance with sliced __data
             return self.__new(self.__data[i1:i2:i3])
 
 
         def filter(self, filter_func=lambda d : True):
-            # return new stream operation instance that passes only elements for
+            # return new __Stream_op instance that passes only elements for
             # which filter_func yields True
             #
             return self.__new([d for d in self.__data if filter_func(d)])
 
 
         def map(self, map_func=lambda d : d):
-            # return new stream operation instance that passes elements resulting
+            # return new __Stream_op instance that passes elements resulting
             # from map_func of corresponding elements in the inbound stream
             #
             # input data is list of current instance: self.__data
@@ -67,7 +67,7 @@ class Stream:
 
 
         def sort(self, comperator_func=lambda n1, n2 : -1 if n1 < n2 else 1):
-            # return new stream operation instance that passes stream sorted by
+            # return new __Stream_op instance that passes stream sorted by
             # comperator_func
             #
             # create new data for next __Stream_op instance from current instance
@@ -80,14 +80,14 @@ class Stream:
 
 
         def cond(self, cond: bool, conditional):
-            # return same stream operation instance or apply conditional function
-            # on stream operation instance if condition yields True
+            # return same __Stream_op instance or apply conditional function
+            # on __Stream_op instance if condition yields True
             #
             return conditional(self) if cond else self
 
 
         def print(self, prefix=''):
-            # return unchanged (same) stream operation instance and print as side effect
+            # return same, unchanged __Stream_op instance and print as side effect
             #
             print(f'{prefix}{self.__data}')
             return self
@@ -100,14 +100,14 @@ class Stream:
 
 
         def get(self) -> any:
-            # terminal function that returns final stream data
+            # terminal function that returns final stream __data
             #
             return self.__data
 
 
-        def __init__(self, _op_builder, _data):
+        def __init__(self, _new_op_func, _data):
             self.__data = _data
-            self.__new = _op_builder
+            self.__new = _new_op_func    # __new_op() function injected from outer context
 
 
     def source(self):
@@ -118,8 +118,7 @@ class Stream:
 
     def __new_op(self, *argv):
         # private method to create new __Stream_op instance
-        _op = Stream.__Stream_op(self.__new_op, *argv)
-        return _op
+        return Stream.__Stream_op(self.__new_op, *argv)
 
 
     def __init__(self, _data=[]):
