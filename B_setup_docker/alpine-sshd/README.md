@@ -2,13 +2,14 @@
 
 [Docker-compose](https://docs.docker.com/compose/features-uses) is a tool set
 for Docker to automate building, configuring and running containers from a single file:
-[docker-compose.yml](https://docs.docker.com/compose/compose-file) specification.
+[docker-compose.yaml](https://docs.docker.com/compose/compose-file) specification.
 
 Containers are referred to as *services* in the Docker-compose specification.
 
 When a specified image does not exist and the build-tag of a service refers to a
 directory where the container can be built from a
-[Dockerfile](https://docs.docker.com/engine/reference/builder):
+[Dockerfile](https://docs.docker.com/engine/reference/builder) (must be in same
+directory of `docker-compose.yaml`):
 ```
 docker-compose up -d
 ```
@@ -19,12 +20,12 @@ will automatically perform these steps (`-d` starts container in background):
 1. register the container locally and
 1. start it.
 
-Multilpe containers can be specified in a single `docker-compose.yml` file and
+Multilpe containers can be specified in a single `docker-compose.yaml` file and
 started in a defined order expressed by dependencies (`depends_on`-tag, e.g. to
 express that a database service must be started before an application service
 that is depending on it).
 
-To stop all services specified in a `docker-compose.yml` file:
+To stop all services specified in a `docker-compose.yaml` file:
 ```
 docker-compose stop
 ```
