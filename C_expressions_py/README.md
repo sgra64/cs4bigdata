@@ -83,40 +83,49 @@ powerful expressions
 Don't write own functions.
 
 ```py
-numbers = [4, 12, 3, 8, 17, 12, 1, 8, 7]
+class C2_numbers:
 
-# a) initialize with number of numbers[]: 9
-a = len(numbers)    # <-- expression for a)
+    numbers=[4, 12, 3, 8, 17, 12, 1, 8, 7]
 
-# b) initialize with first three numbers: [4, 12, 3]
-b = []      # <-- write expression here
+    def __init__(self, _numbers=numbers):
+        """
+        Constructor to initialize member variables.
+        """
+        # initialize numbers list
+        self.numbers = _numbers
 
-# c) initialize with last three numbers: [1, 8, 7]
-c = []
+        # a) initialize with number of numbers: 9
+        self.a = len(self.numbers)    # <-- expression for a)
 
-# d) initialize with last three numbers reverse: [7, 8, 1]
-d = []
+        # b) initialize with first three numbers: [4, 12, 3]
+        self.b = []      # <-- write expression here
 
-# e) initialize with odd numbers: [3, 17, 1, 7]
-e = []
+        # c) initialize with last three numbers: [1, 8, 7]
+        self.c = []
 
-# f) initialize with number of odd numbers: 4
-f = 0
+        # d) initialize with last three numbers reverse: [7, 8, 1]
+        self.d = []
 
-# g) initialize with sum_ of odd numbers: 28
-g = 0
+        # e) initialize with odd numbers: [3, 17, 1, 7]
+        self.e = []
 
-# h) duplicate numbers removed: [4, 12, 3, 8, 17, 1, 7]
-h = []
+        # f) initialize with number of odd numbers: 4
+        self.f = 0
 
-# i) number of duplicate numbers: 2
-i = 0
+        # g) initialize with sum_ of odd numbers: 28
+        self.g = 0
 
-# j) ascending list of squared numbers with no duplicates: [1, 9, 16, 49, 64, 144, 289]
-j = []
+        # h) duplicate numbers removed: [4, 12, 3, 8, 17, 1, 7]
+        self.h = []
 
-# k) initialize with "ODD_LIST", "EVEN_LIST" or "EMPTY_LIST" depending on numbers length
-k = "NEITHER"
+        # i) number of duplicate numbers: 2
+        self.i = 0
+
+        # j) ascending list of squared numbers with no duplicates: [1, 9, 16, 49, 64, 144, 289]
+        self.j = []
+
+        # k) initialize with "ODD_LIST", "EVEN_LIST" or "EMPTY_LIST" depending on numbers length
+        self.k = "NEITHER"
 ```
 Output:
 ```py
@@ -228,48 +237,65 @@ Pull file [C3_names.py](https://github.com/sgra64/cs4bigdata/blob/main/C_express
 ```py
 class C3_names:
 
-    # list of names default initialization (updated by the constructor)
-    names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White', 'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark', 'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez', 'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Cox', 'Gomez', 'Murray', 'Freeman', 'Wells', 'Webb', 'Simpson', 'Stevens', 'Tucker' 'Porter', 'Hunter', 'Hicks', 'Crawford', 'Henry', 'Boyd', 'Mason', 'Morales', 'Kennedy', 'Warren', 'Dixon', 'Ramos', 'Reyes', 'Burns', 'Gordon', 'Shaw', 'Holmes', 'Rice', 'Robertson', 'Henderson', 'Patterson', 'Red', 'Willoughby', 'Fitzgerald']
+    names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller',
+        'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White',
+        'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark',
+        'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez',
+        'King', 'Wright', 'Lopez', 'Hill', 'Scott', 'Green', 'Adams', 'Cox', 'Gomez',
+        'Murray', 'Freeman', 'Wells', 'Webb', 'Simpson', 'Stevens', 'Tucker', 'Porter',
+        'Hunter', 'Hicks', 'Crawford', 'Henry', 'Boyd', 'Mason', 'Morales', 'Kennedy',
+        'Warren', 'Dixon', 'Ramos', 'Reyes', 'Burns', 'Gordon', 'Shaw', 'Holmes', 'Rice',
+        'Robertson', 'Henderson', 'Patterson', 'Red', 'Willoughby', 'Fitzgerald']
 
-    # name_lengths: list of name lengths
-    # [5, 7, 8, 5, 5, 5, 6, 6, ... 6, 4, 9, 9, 9, 3, 10, 10]
-    name_lengths = []
+    def __init__(self, _names=names):
+        """
+        Constructor to initialize member variables.
+        """
+        self.names = _names
 
-    # freq: composite structure with the three most and the three least frequent
-    # name lengths such as: 23x names of length 5, 16x names of length 6
-    # and 7 names of length 7 as three most_frequent names.
-    """
-    freq = {
-        "most_freq": [
-            (23, 5, [names...]), (16, 6, [names...]), (7, 7, [names...])
-        ]
-        "least_freq": [
-            (2, 10, [names...]), (3, 3, [names...]), (5, 9, [names...])
-        ]
-    }
-    #
-    holding information for output:
-    #
-    The three most frequent name lenghts are:
-    - 23 names of length 5: ['Smith', 'Jones', 'Brown', 'Davis', 'Moore', ... ]
-    - 16 names of length 6: ['Miller', 'Wilson', 'Taylor', 'Thomas', 'Harris', ... ]
-    -  7 names of length 7: ['Johnson', 'Jackson', 'Freeman', 'Simpson', 'Stevens', ... ]
-    The three least frequent name lenghts are:
-    -  2 names of length 10: ['Willoughby', 'Fitzgerald']
-    -  3 names of length 3: ['Lee', 'Cox', 'Red']
-    -  5 names of length 9: ['Rodriguez', 'Hernandez', 'Robertson', 'Henderson', 'Patterson']
-    """
-    freq = None
+        # list of corresponding name lengths
+        # name_lengths = [5, 7, 8, 5, 5, 5, 6, 6, ... 6, 4, 9, 9, 9, 3, 10, 10]
+        self.name_lengths = []
+
+        # composite structure with the three most and the three least frequent
+        # name lengths such as: 23x names of length 5, 16x names of length 6
+        # and 7 names of length 7 as three most_frequent names.
+        """
+        freq = {
+            "most_freq": [
+                (23, 5, [names...]), (16, 6, [names...]), (7, 7, [names...])
+            ]
+            "least_freq": [
+                (2, 10, [names...]), (3, 3, [names...]), (5, 9, [names...])
+            ]
+        }
+        holding information for output:
+        #
+        The three most frequent name lenghts are:
+        - 23 names of length 5: ['Smith', 'Jones', 'Brown', 'Davis', 'Moore', ... ]
+        - 16 names of length 6: ['Miller', 'Wilson', 'Taylor', 'Thomas', 'Harris', ... ]
+        -  7 names of length 7: ['Johnson', 'Jackson', 'Freeman', 'Simpson', 'Stevens', ... ]
+        The three least frequent name lenghts are:
+        -  2 names of length 10: ['Willoughby', 'Fitzgerald']
+        -  3 names of length 3: ['Lee', 'Cox', 'Red']
+        -  5 names of length 9: ['Rodriguez', 'Hernandez', 'Robertson', 'Henderson', 'Patterson']
+        """
+        self.freq = None
+
+        self.solution()    # invoke solution method
 
 
+    # implement this member function
     def solution(self): # -> Self: from Python 3.10
         """
         Method to create freq structure.
         """
+        self.name_lengths = ...
         self.freq = ...
         return self
 
 
+    # implement this member function
     def avg_length(self) -> float:
         """
         Return average name length.
@@ -278,36 +304,18 @@ class C3_names:
 
 
     def print_name_lengths(self): # -> Self: from Python 3.10
-        """
-        Print list of name lengths.
-        """
-        print(f'Name lengths: {self.name_length}')
+        ...
         return self
 
 
     def print_freq(self): # -> Self: from Python 3.10
-        """
-        Pretty-print freq struct.
-        """
         ...
         return self
 
 
     def print_avg_length(self): # -> Self: from Python 3.10
-        """
-        Print average name length.
-        """
-        print(f'The average name length: {self.avg_length():.2f}')
+        ...
         return self
-
-
-    def __init__(self, names=None):
-        """
-        Constructor.
-        """
-        if names != None and type(names==list):
-            self.names = names
-        self.solution()
 
 
 if __name__ == '__main__':

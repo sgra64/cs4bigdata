@@ -4,48 +4,67 @@ such that they yield the results shown in comments.
 
 Only use [built-in functions](https://docs.python.org/3/library/functions.html)
 or Python's powerful expressions
-[ternary operators](https://book.pythontips.com/en/latest/ternary_operators.html),
+[ternary operators](https://book.pythontips.com/en/latest/ternary_operators.html)
+or
 [list comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp)
 
 Don't write own functions.
 """
+
 class C2_numbers:
 
-    # default initialization (updated by the constructor)
-    numbers = [4, 12, 3, 8, 17, 12, 1, 8, 7]
+    numbers=[4, 12, 3, 8, 17, 12, 1, 8, 7]
 
-    # a) initialize with number of numbers: 9
-    a = len(numbers)    # <-- expression for a)
+    def __init__(self, _numbers=numbers):
+        """
+        Constructor to initialize member variables.
+        """
+        # initialize numbers list
+        self.numbers = _numbers
 
-    # b) initialize with first three numbers: [4, 12, 3]
-    b = []      # <-- write expression here
+        # a) initialize with number of numbers: 9
+        self.a = len(self.numbers)    # <-- expression for a)
 
-    # c) initialize with last three numbers: [1, 8, 7]
-    c = []
+        # b) initialize with first three numbers: [4, 12, 3]
+        self.b = []      # <-- write expression here
 
-    # d) initialize with last three numbers reverse: [7, 8, 1]
-    d = []
+        # c) initialize with last three numbers: [1, 8, 7]
+        self.c = []
 
-    # e) initialize with odd numbers: [3, 17, 1, 7]
-    e = []
+        # d) initialize with last three numbers reverse: [7, 8, 1]
+        self.d = []
 
-    # f) initialize with number of odd numbers: 4
-    f = 0
+        # e) initialize with odd numbers: [3, 17, 1, 7]
+        self.e = []
 
-    # g) initialize with sum_ of odd numbers: 28
-    g = 0
+        # f) initialize with number of odd numbers: 4
+        self.f = 0
 
-    # h) duplicate numbers removed: [4, 12, 3, 8, 17, 1, 7]
-    h = []
+        # g) initialize with sum_ of odd numbers: 28
+        self.g = 0
 
-    # i) number of duplicate numbers: 2
-    i = 0
+        # h) duplicate numbers removed: [4, 12, 3, 8, 17, 1, 7]
+        self.h = []
 
-    # j) ascending list of squared numbers with no duplicates: [1, 9, 16, 49, 64, 144, 289]
-    j = []
+        # i) number of duplicate numbers: 2
+        self.i = 0
 
-    # k) initialize with "ODD_LIST", "EVEN_LIST" or "EMPTY_LIST" depending on numbers length
-    k = "NEITHER"
+        # j) ascending list of squared numbers with no duplicates: [1, 9, 16, 49, 64, 144, 289]
+        self.j = []
+
+        # k) initialize with "ODD_LIST", "EVEN_LIST" or "EMPTY_LIST" depending on numbers length
+        self.k = "NEITHER"
+
+
+        # Ignore this code that loads solution from file, if exists.
+        # The solution is not distributed.
+        try:
+            _from, _import = 'C2_numbers_sol', 'solution'
+            solution = getattr(__import__(_from, fromlist=[_import]), _import)
+            solution(self)
+        #
+        except ImportError:
+            pass
 
 
     def print_results(self):
@@ -69,17 +88,9 @@ class C2_numbers:
             print(f'{k}) {fmt[k][1]}: {fmt[k][0]}')
 
 
-    def __init__(self, numbers=None):
-        """
-        Constructor.
-        """
-        if numbers != None and type(numbers==list):
-            self.numbers = numbers
-
-
 if __name__ == '__main__':
     """
-    Main driver that starts program when called from command line.
+    Main driver that runs when this file is executed by Python interpreter.
     """
     #
     n1 = C2_numbers()   # use default list in C2_numbers
