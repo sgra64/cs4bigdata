@@ -6,7 +6,7 @@ and the least frequent names.
 
 class C3_names:
 
-    default_names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller',
+    names = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller',
         'Wilson', 'Moore', 'Taylor', 'Anderson', 'Thomas', 'Jackson', 'White',
         'Harris', 'Martin', 'Thompson', 'Garcia', 'Martinez', 'Robinson', 'Clark',
         'Rodriguez', 'Lewis', 'Lee', 'Walker', 'Hall', 'Allen', 'Young', 'Hernandez',
@@ -16,11 +16,11 @@ class C3_names:
         'Warren', 'Dixon', 'Ramos', 'Reyes', 'Burns', 'Gordon', 'Shaw', 'Holmes', 'Rice',
         'Robertson', 'Henderson', 'Patterson', 'Red', 'Willoughby', 'Fitzgerald']
 
-    def __init__(self, names=default_names):
+    def __init__(self, _names=names):
         """
         Constructor to initialize member variables.
         """
-        self.names = names
+        self.names = _names
 
         # list of corresponding name lengths
         # name_lengths = [5, 7, 8, 5, 5, 5, 6, 6, ... 6, 4, 9, 9, 9, 3, 10, 10]
