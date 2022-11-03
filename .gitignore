@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# exclude solution files from being committed
+C_expressions_py/C2_numbers_sol.py
+C_expressions_py/C3_names_sol.py
+D_functions_and_streams/stream_sol.py
+
+# exclude packages from being committed
+B_setup_docker/alpine-python-sshd/
+
