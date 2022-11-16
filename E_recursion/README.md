@@ -1,11 +1,11 @@
-# Assignment E: Recursion &nbsp; (<span style="color:red">12 Pts</span>)
+# Assignment E: Recursive Problem Solving &nbsp; (<span style="color:red">13 Pts + 4 Extra Pts</span>)
 
 Recursion is not just a function calling itself, it is a way of thinking
 about problems that can be split into simple cases and remaining sub-problems
-and ways to combine solutions returned from sub-problem recursion with the
-simple case.
+that are smaller and ways to combine solutions returned from recursing on
+sub-problems with the simple case.
 
-Recursive problem solving follows these steps:
+Recursive problem solving follows four steps:
 1. Return a trivial solution for a trivial case (e.g. value `0` for an empty list).
 1. Split the problem into a simple case (e.g. a first element) and a remaining,
     small sub-problem (e.g. the remaining list with the first element removed).
@@ -20,9 +20,9 @@ Recursive problem solving follows these steps:
 1. [Challenge 2:](#2-challenge-2) Fibonacci numbers
 1. [Challenge 3:](#3-challenge-3) Permutation
 1. [Challenge 4:](#4-challenge-4) Powerset
-1. [Challenge 5:](#5-challenge-5) Find matching, Find pairs
+1. [Challenge 5:](#5-challenge-5) Find matches, Find pairs
 1. [Challenge 6:](#6-challenge-6) Combinatorial Problem finding numbers
-1. [Challenge 7:](#7-challenge-7) Hard Problem finding numbers (extra)
+1. [Challenge 7:](#7-challenge-7) Hard Problem finding numbers (+4 extra points)
 <!-- 1. [Challenge 8:](#8-challenge-8) Topic
 1. [Challenge 9:](#9-challenge-9) Topic -->
 
@@ -31,12 +31,12 @@ Recursive problem solving follows these steps:
 ### 1.) Challenge 1
 Pull file [E1_recursion.py](https://github.com/sgra64/cs4bigdata/blob/main/E_recursion/E1_recursion.py) and complete functions using recursion.
 
-Follow the four steps for calculating `sum(numbers)`.
+Follow the four steps for calculating `sum(numbers)`:
 1. Return 0 for an empty list of numbers.
 1. Split the problem by removing the first number `n1` from the list leaving `r` as
     remaining list (sub-problem).
 1. Invoke `sum(r)` recursively on the remaining list.
-1. Combine final result from first number `n1` with solution returned for sub-problem:
+1. Combine the result for the sub-problem with the first number `n1`:
     `return n1 + sum(r)`.
 
 ```py
@@ -44,9 +44,10 @@ def sum(self, _numbers) -> int:
     # your code
     return #...
 
-n1 = E1_recursion()
-print(f'n1.numbers: {n1.numbers}')
-print(f'sum(n1.numbers): {n1.sum(n1.numbers)}')
+if __name__ == '__main__':
+    n1 = E1_recursion()
+    print(f'n1.numbers: {n1.numbers}')
+    print(f'sum(n1.numbers): {n1.sum(n1.numbers)}')
 ```
 
 Output:
@@ -65,11 +66,13 @@ For a list of `n` numbers, how many recursive invocations are needed?
 described in Indian mathematics as early as 200 BC in work by Pingala on enumerating
 possible patterns of Sanskrit poetry formed from syllables of two lengths.
 
-Italian mathematician Leonardo of Pisa, later known as Fibonacci, introduced the
-sequence to Western European mathematics in his 1202 book *Liber Abaci*. 
+Italian mathematician *Leonardo of Pisa*, later known as *Fibonacci*, introduced
+the sequence to Western European mathematics in his 1202 book *Liber Abaci*.
 
-Numbers of the Fibonacci are defined as each number is the sum of the two
-preceding numbers. Fibonacci numbers are found in nature and social
+![image](img_fibonacci.jpg)
+
+Numbers of the Fibonacci sequence are defined as each number is the sum of the
+two preceding numbers. Fibonacci numbers are found in nature and social
 behavior ([1:32min](https://www.youtube.com/watch?v=v6PTrc0z4w4) video).
 
 Complete the functions `fib(n)` and `fig_gen(n)`.
@@ -143,14 +146,17 @@ perm([1, 2]) -> [[1, 2], [2, 1]]
 perm([1, 2, 3]) -> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
 perm([1, 2, 3, 4]) -> [[1, 2, 3, 4], [1, 2, 4, 3], ... [4, 3, 1, 2], [4, 3, 2, 1]]
 ```
-Writing non-recursive code to generate permutations can be difficult.
+Find a pattern how numbers are arranged for `perm([1, 2])` and `perm([1, 2, 3])`
+and adapt it for `perm([1, 2, 3, 4])` to understand the algorithm.
 
-The recursive approach is elegant following the four steps:
+Writing non-recursive code for that algorithm can be difficult, but it fits
+well with the recursive sub-problen approach, which is elegant with the
+four steps:
 1. Return solutions for trivial cases: `[]`, `[1]`, `[1, 2]`.
 1. Split the problem by removing the first number `n1` from the list leaving `r` as
     remaining list (sub-problem).
 1. Invoke `perm(r)` recursively on the remaining list.
-1. Combine the result by adding `n1` to each returned element from `perm(r)`.
+1. Combine the result returned from `perm(r)` by adding `n1` to each element.
 
 ```py
 def perm(self, _numbers) -> list:
@@ -165,12 +171,12 @@ def perm(self, _numbers) -> list:
     return res
 
 lst = [1, 2, 3]
-pset = n1.perm(lst)
-print(f'perm({lst}) -> {pset}')
+perm = n1.perm(lst)
+print(f'perm({lst}) -> {perm}')
 
 lst = [1, 2, 3, 4]
-pset = n1.perm(lst)
-print(f'perm({lst}) -> {pset}')
+perm = n1.perm(lst)
+print(f'perm({lst}) -> {perm}')
 ```
 
 Output:
@@ -179,7 +185,7 @@ perm([1, 2, 3]) -> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2
 perm([1, 2, 3, 4]) -> [[1, 2, 3, 4], [1, 2, 4, 3], ... [4, 3, 1, 2], [4, 3, 2, 1]]
 ```
 
-With rising length of the input list, how does the number of permutations grow?
+With a rising length of the input list, how does the number of permutations grow?
 
 (2 Pts)
 
@@ -193,7 +199,7 @@ For example:
 ```py
 pset([1, 2, 3]) -> [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 ```
-Complete function `pset()`.
+Undertstand the pattern and complete function `pset()`.
 
 ```py
 def pset(self, _numbers) -> list:
@@ -203,7 +209,7 @@ def pset(self, _numbers) -> list:
     # 2. Split the problem by removing the first number `n1` from the list
     #    leaving `r` as remaining list (sub-problem).
     # 3. Invoke `pset(r)` recursively on the remaining list.
-    # 4. Combine the result.
+    # 4. Combine the result with the first element.
     #
     return res
 
@@ -217,21 +223,23 @@ Output:
 pset([1, 2, 3]) -> [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 ```
 
-With rising length of the input list, how does the size of the Powerset grow?
+With a rising length of the input list, how does the size of the Powerset grow?
 
 (2 Pts)
 
 
 &nbsp;
 ### 5.) Challenge 5
-Write a function to `find` elements in a list that match the boolean result
-of a `match_func`.
+Write three functions to `find` elements in a list.
 
-A second function `find_adjacent` finds all indexes of adjacent pairs of numbers.
+The first function to `find` elements that match a boolean `match_func`.
 
-The third function `find_sum` finds all pairs of numbers (not necessarily adjacent)
-with the sum equal to `n`. For example, `n=12` can be combined from the input list
-by pairs: `[3, 9], [4, 8], [2, 10]`.
+A second function `find_adjacent` that finds all indexes of adjacent pairs
+of numbers.
+
+The third function `find_pairs` that finds all pairs of numbers (not necessarily
+adjacent) with the sum equal to `n`. For example, `n=12` can be combined from
+the input list with pairs: `[3, 9], [4, 8], [2, 10]`.
 
 ```py
 def find(self, _numbers, match_func) -> list:
@@ -244,7 +252,7 @@ def find_adjacent(self, pair, _numbers) -> list:
     return res
 
 
-def find_sum(self, n, _numbers) -> list:
+def find_pairs(self, n, _numbers) -> list:
     res = []    # code...
     return res
 
@@ -259,43 +267,43 @@ adj = n1.find_adjacent(p, lst)
 print(f'find_adjacent({p}, list): {adj}')
 #
 n = 12  # find all pairs from the input list that add to n
-fsum = n1.find_sum(n, lst)
-print(f'find_sum({n}, list) -> {fsum}')
+pairs = n1.find_pairs(n, lst)
+print(f'find_pairs({n}, list) -> {pairs}')
 ```
 
 Output:
-```py
+```sh
 find numbers divisible by 3: [9, 3]
 
 find_adjacent([4, 8], list): [1, 5, 9]
 
-find_sum(12, list) -> [[3, 9], [4, 8], [2, 10]]
+find_pairs(12, list) -> [[3, 9], [4, 8], [2, 10]]
 ```
-With rising length of the input list, how many steps are needed to
+With a rising length of the input list, how many steps are needed to
 complete each function in the best and worst case and on average?
 
 | function         | answers     |
 | ---------------- | ----------- |
 | `find`           | best case: ______, worst case: ______, average: ______ steps.  |
 | `find_adjacent`  | best case: ______, worst case: ______, average: ______ steps.  |
-| `find_sum`       | best case: ______, worst case: ______, average: ______ steps.  |
+| `find_pairs`       | best case: ______, worst case: ______, average: ______ steps.  |
 
 (3 Pts)
 
 
 &nbsp;
 ### 6.) Challenge 6
-`find_all_sum` is a function that returns any combination of numbers from the
+`find_all_sums` is a function that returns any combination of numbers from the
 input list that add to `n`. For example, `n=14` can be combined from an
 input list: `[8, 10, 2, 14, 4]` by combinations: `[4, 8, 2], [4, 10], [14]`.
 
-A first approach to the problem can be to understand the nature of possible
-combinations of numbers from the input list. If all those combinations could
-be generated, each could be tested whether their elements add to `n` and if,
+A first approach to the problem is to understand the nature of possible
+combinations from the input list. If all those combinations could be
+generated, each could be tested whether their elements add to `n` and if,
 collect them for the final result.
 
-Order of numbers found is not relevant (sum). Duplicate solutions with same
-numbers, but different order should be avoided.
+The order of numbers in solutions is not relevant (summation is commutative).
+Duplicate solutions with same numbers, but in different order need be to removed.
 
 ```py
 def find_all_sums(self, n, _numbers) -> list:
@@ -326,12 +334,12 @@ print(f'find_all_sums({n}, lst) -> {all}')
 ```
 
 Output:
-```py
+```sh
 find_all_sums(469, lst) -> [[179, 290], [101, 167, 201]]
 ```
 
-With rising length of the input list, how does the number of possible solutuions rise
-that must be tested?
+With a rising length of the input list, how does the number of possible
+solutuions rise that must be tested?
 
 (2 Pts)
 
@@ -341,7 +349,8 @@ that must be tested?
 Larger data sets can no longer be solved *"brute force"* by exploring all possible
 2^n combinations.
 
-Find a solution using a recursive decision tree or tabulation.
+Find a solution using a recursive approach exploring a decision tree or
+with tabulation.
 
 ```py
 lst = [     # input list
@@ -358,7 +367,8 @@ all = n1.find_all_sums(n, lst)
 for i, s in enumerate(all):
     print(f' - {i+1:2}: sum({sum(s)}) -> {s}')
 ```
-
+Sort output by lenght of solution (use length as primary and numeric value
+of first element as secondary criteria).
 
 Output:
 ```
@@ -383,6 +393,7 @@ Output:
 ```
 
 ( +4 Extra Pts)
+
 
 
 
