@@ -137,6 +137,7 @@ E_recursion/E1_recursion_sol.py
 
 # exclude packages from being committed
 B_setup_docker/alpine-python-sshd
+B_setup_docker/jupyter
 
 # exclude playground
 playground
