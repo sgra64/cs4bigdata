@@ -141,4 +141,6 @@ B_setup_docker/jupyter
 
 # exclude playground
 playground
+F_Spark/spark-standalone-cluster-on-docker
+
 
