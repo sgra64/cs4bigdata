@@ -1,19 +1,15 @@
 # Assignment F: PySpark &nbsp; (<span style="color:red">12 Pts</span>)
 
-Recursion is not just a function calling itself, it is a way of thinking
-about problems that can be split into simple cases and remaining sub-problems
-that are smaller and ways to combine solutions returned from recursing on
-sub-problems with the simple case.
+Apache Spark is an open-source unified analytics engine for large-scale data processing. Spark provides an interface for programming clusters with:
 
-Recursive problem solving follows four steps:
-1. Return a trivial solution for a trivial case (e.g. value `0` for an empty list).
-1. Split the problem into a simple case (e.g. a first element) and a remaining,
-    small sub-problem (e.g. the remaining list with the first element removed).
-1. Solve the sub-problem by recursively invoking the function on the sub-problem
-    with no extra code.
-1. Combine the final result from the simple case with the solution(s) returned
-    for sub-problems.
+- implicit data parallelism and
 
+- fault tolerance.
+
+
+&nbsp;
+
+---
 
 ### Challenges
 1. [Challenge 1:](#1-challenge-1-get-pyspark-containers) Get PySpark Containers - (2 Pts)
@@ -156,7 +152,18 @@ Execute the cell.
 
 ### 4.) Challenge 4: Explain the PySpark Environment
 
-Briefly describe which essential parts a PySpark-environment consists of.
+Briefly describe which essential parts a PySpark-environment consists of and
+concepts:
+
+- RDD, DF, DS
+
+- Transformation
+
+- Action
+
+- Lineage
+
+- Partition
 
 
 &nbsp;
@@ -168,8 +175,11 @@ Briefly describe which essential parts a PySpark-environment consists of.
 William Shakespeare’s (1564 ‐ 1616) plays have become a popular corpus for text analysis. Project
 Gutenberg (gutenberg.org) has compiled plays into a single text file that you can find in Moodle.
 
-![](./F1_Analyzing_Shakespeare.pdf)
+[Processing Shakespeare](https://lmackerman.com/AdventuresInR/docs/shakespeare.nb.html)
+is a project that aimes at visualizing Shakespeare’s texts.
 
+- All volumes: [Shakespeare.txt](./Shakespeare.txt).
 
+- Tasks: [F1_Analyzing_Shakespeare.pdf](https://github.com/sgra64/cs4bigdata/raw/main/F_Spark/F1_Analyzing_Shakespeare.pdf)
 
 
